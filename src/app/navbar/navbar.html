@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo/品牌名称 -->
+    <div class="navbar-brand">
+      <a routerLink="/home" class="brand-link">My App</a>
+    </div>
+
+    <!-- 导航链接 -->
+    <div class="navbar-nav">
+      <a routerLink="/home" routerLinkActive="active" class="nav-link">
+        <span class="nav-icon">🏠</span>
+        首页
+      </a>
+      <button class="nav-link logout-btn" (click)="logout()">
+        <span class="nav-icon">🚪</span>
+        退出登录
+      </button>
+    </div>
+  </div>
+</nav>

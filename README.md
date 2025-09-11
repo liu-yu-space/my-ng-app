@@ -26,6 +26,38 @@ ng generate component component-name
 ng generate --help
 ```
 
+### 生成组件
+ng generate component component-name
+ng g c component-name  # 简写
+
+### 生成服务
+ng generate service service-name
+ng g s service-name
+
+### 生成模块
+ng generate module module-name
+ng g m module-name
+
+### 生成指令
+ng generate directive directive-name
+ng g d directive-name
+
+### 生成管道
+ng generate pipe pipe-name
+ng g p pipe-name
+
+### 生成守卫
+ng generate guard guard-name
+ng g g guard-name
+
+### 生成接口
+ng generate interface interface-name
+ng g i interface-name
+
+### 生成枚举
+ng generate enum enum-name
+ng g e enum-name
+
 ## 构建
 
 要构建项目，运行：

@@ -1,0 +1,319 @@
+/* 全屏背景容器 */
+.login-container {
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 登录表单卡片 */
+.login-form {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 48px 40px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideInScale 0.6s ease-out;
+}
+
+/* 标题样式 */
+.login-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2d3748;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 表单组 */
+.form-group {
+  margin-bottom: 28px;
+  position: relative;
+}
+
+/* 标签样式 */
+.form-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #4a5568;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+/* 输入框样式 */
+.form-input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 16px;
+  background: #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+  font-weight: 400;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow:
+    0 0 0 3px rgba(102, 126, 234, 0.1),
+    0 4px 12px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.form-input:hover:not(:focus) {
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+.form-input:disabled {
+  background: #f7fafc;
+  color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* 登录按钮 */
+.login-button {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.login-button:hover::before {
+  left: 100%;
+}
+
+.login-button:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 24px rgba(102, 126, 234, 0.3),
+    0 6px 12px rgba(118, 75, 162, 0.2);
+}
+
+.login-button:active {
+  transform: translateY(-1px);
+  box-shadow:
+    0 6px 12px rgba(102, 126, 234, 0.2),
+    0 3px 6px rgba(118, 75, 162, 0.15);
+}
+
+.login-button:disabled {
+  background: linear-gradient(135deg, #a0aec0 0%, #cbd5e0 100%);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.login-button:disabled::before {
+  display: none;
+}
+
+/* 错误消息 */
+.error-message {
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+  color: #c53030;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 4px solid #e53e3e;
+  animation: shakeIn 0.6s ease-out;
+  box-shadow: 0 4px 12px rgba(229, 62, 62, 0.15);
+}
+
+/* 提示信息 */
+.login-hint {
+  text-align: center;
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  color: #234e52;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  border-left: 4px solid #38b2ac;
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+/* 动画效果 */
+@keyframes slideInScale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes shakeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .login-form {
+    margin: 20px;
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .login-title {
+    font-size: 28px;
+    margin-bottom: 32px;
+  }
+
+  .form-input {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+
+  .login-button {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 360px) {
+  .login-form {
+    padding: 24px 20px;
+  }
+
+  .login-title {
+    font-size: 24px;
+  }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .login-form {
+    background: rgba(26, 32, 44, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .login-title {
+    color: #f7fafc;
+  }
+
+  .form-label {
+    color: #e2e8f0;
+  }
+
+  .form-input {
+    background: rgba(45, 55, 72, 0.8);
+    border-color: #4a5568;
+    color: #f7fafc;
+  }
+
+  .form-input::placeholder {
+    color: #718096;
+  }
+
+  .form-input:focus {
+    border-color: #90cdf4;
+    background: rgba(45, 55, 72, 0.9);
+  }
+
+  .error-message {
+    background: linear-gradient(135deg, #742a2a 0%, #9b2c2c 100%);
+    color: #feb2b2;
+    border-left-color: #fc8181;
+  }
+
+  .login-hint {
+    background: linear-gradient(135deg, #234e52 0%, #285e61 100%);
+    color: #81e6d9;
+    border-left-color: #4fd1c7;
+  }
+}
+
+/* 聚焦可访问性 */
+.form-input:focus-visible,
+.login-button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* 减少动画效果（用户偏好） */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
